@@ -8,6 +8,7 @@ import { Link } from 'react-router';
 import { useState } from 'react';
 import { ArrowLeft,ArrowRight,Home,LayoutGrid } from 'lucide-react'
 import Summeries from '@/dashboard/Components/forms/Summaries';
+import Experience from '@/dashboard/Components/forms/Experience';
 
 function FormSection() {
     
@@ -31,7 +32,8 @@ function FormSection() {
           {/*Personal Details */}
              {activeFormIndex==1?  <PersonalDetail enabledNext={(v)=>setEnabledNext(v)} /> 
              
-             :activeFormIndex==2?<Summeries enabledNext={(v)=>setEnabledNext(v)}/>:null}
+             :activeFormIndex==2?<Summeries enabledNext={(v)=>setEnabledNext(v)}/>
+             :activeFormIndex==3?<Experience/>:null}
               
                 {/*Summary */}
 
