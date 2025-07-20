@@ -9,10 +9,11 @@ import { useState } from 'react';
 import { ArrowLeft,ArrowRight,Home,LayoutGrid } from 'lucide-react'
 import Summeries from '@/dashboard/Components/forms/Summaries';
 import Experience from '@/dashboard/Components/forms/Experience';
+import Education from '@/dashboard/Components/forms/Education';
 
 function FormSection() {
     
-  const [activeFormIndex,setActiveFormIndex]=useState(2);
+  const [activeFormIndex,setActiveFormIndex]=useState(4);
   const [enabledNext, setEnabledNext] = useState(false)
   return (
     <div>
@@ -33,7 +34,8 @@ function FormSection() {
              {activeFormIndex==1?  <PersonalDetail enabledNext={(v)=>setEnabledNext(v)} /> 
              
              :activeFormIndex==2?<Summeries enabledNext={(v)=>setEnabledNext(v)}/>
-             :activeFormIndex==3?<Experience/>:null}
+             :activeFormIndex==3?<Experience enabledNext={(v)=>setEnabledNext(v)}/>
+             :activeFormIndex==4?<Education  enabledNext={(v)=>setEnabledNext(v)}/>:null}
               
                 {/*Summary */}
 

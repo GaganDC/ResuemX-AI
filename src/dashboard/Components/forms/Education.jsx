@@ -1,17 +1,17 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { ResumeInfoContext } from '@/context/ResumeInfoContext'
+import { ResumeinfoContext } from "../../../context/ResumeinfoContext";
 import { LoaderCircle } from 'lucide-react'
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import GlobalApi from './../../../../../service/GlobalApi'
+import GlobalApi from '../../../../service/GlobalApi'
 import { toast } from 'sonner'
 
-function Education() {
+function Education({ enabledNext }) {
 
   const [loading,setLoading]=useState(false);
-  const {resumeInfo,setResumeInfo}=useContext(ResumeInfoContext);
+  const {resumeInfo,setResumeInfo}=useContext(ResumeinfoContext);
   const params=useParams();
   const [educationalList,setEducationalList]=useState([
     {
@@ -54,7 +54,7 @@ function Education() {
     setLoading(true)
     const data={
       data:{
-        education:educationalList.map(({ id, ...rest }) => rest)
+        Education:educationalList.map(({ id, ...rest }) => rest)
       }
     }
 
@@ -82,7 +82,7 @@ function Education() {
 
     <div>
       {educationalList.map((item,index)=>(
-        <div>
+        <div key={index}> 
           <div className='grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg'>
             <div className='col-span-2'>
               <label>University Name</label>
