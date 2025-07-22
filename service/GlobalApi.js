@@ -16,8 +16,14 @@ const CreateNewResume=(data)=>axiosClient.post('/user-resumes',data)
 
 const GetUserResume=(useremail) =>axiosClient.get('/user-resumes?filters[useremail][$eq]='+useremail)
 const UpdateResumeDetail=(id,data) =>axiosClient.put('/user-resumes/'+id,data)
+const GetResumeById=(id)=>axiosClient.get('/user-resumes/'+id+"?populate=*")
+
+const DeleteResumeById=(id)=>axiosClient.delete('/user-resumes/'+id)
+
 export default{
     CreateNewResume,
     GetUserResume,
-    UpdateResumeDetail
+    UpdateResumeDetail,
+    GetResumeById,
+    DeleteResumeById
 }

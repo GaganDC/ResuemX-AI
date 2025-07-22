@@ -1,12 +1,11 @@
 import { Input } from '@/components/ui/input'
 import React, { useContext, useEffect, useState } from 'react'
 import { Rating } from '@smastrom/react-rating'
-
+import { ResumeinfoContext } from "../../../context/ResumeinfoContext";
 import '@smastrom/react-rating/style.css'
 import { Button } from '@/components/ui/button'
 import { LoaderCircle } from 'lucide-react'
-import { ResumeInfoContext } from '@/context/ResumeInfoContext'
-import GlobalApi from './../../../../../service/GlobalApi'
+import GlobalApi from '../../../../service/GlobalApi'
 import { useParams } from 'react-router-dom'
 import { toast } from 'sonner'
 function Skills() {
@@ -18,7 +17,7 @@ function Skills() {
     const {resumeId}=useParams();
 
     const [loading,setLoading]=useState(false);
-    const {resumeInfo,setResumeInfo}=useContext(ResumeInfoContext);
+    const {resumeInfo,setResumeInfo}=useContext(ResumeinfoContext);
    
     useEffect(()=>{
         resumeInfo&&setSkillsList(resumeInfo?.skills)
@@ -46,7 +45,7 @@ function Skills() {
         setLoading(true);
         const data={
             data:{
-                skills:skillsList.map(({ id, ...rest }) => rest)
+                Skills:skillsList.map(({ id, ...rest }) => rest)
             }
         }
 
@@ -74,7 +73,7 @@ function Skills() {
 
     <div>
         {skillsList.map((item,index)=>(
-            <div className='flex justify-between mb-2 border rounded-lg p-3 '>
+            <div key={index}  className='flex justify-between mb-2 border rounded-lg p-3 '>
                 <div>
                     <label className='text-xs'>Name</label>
                     <Input className="w-full"
