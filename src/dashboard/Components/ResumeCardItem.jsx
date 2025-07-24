@@ -51,7 +51,7 @@ function ResumeCardItem({resume,refreshData}) {
   }
   return (
     
-       <div className=''>
+        <div className=''>
           <Link to={'/dashboard/resume/'+resume.documentId+"/edit"}>
         <div className='p-14  bg-gradient-to-b
           from-pink-100 via-purple-200 to-blue-200
@@ -88,27 +88,27 @@ function ResumeCardItem({resume,refreshData}) {
             <DropdownMenuItem onClick={()=>setOpenAlert(true)}>Delete</DropdownMenuItem>
             
           </DropdownMenuContent>
-        </DropdownMenu>
+          </DropdownMenu>
 
-        <AlertDialog open={openAlert}>
+            <AlertDialog open={openAlert}>
         
-        <AlertDialogContent>
-          <AlertDialogHeader>
+            <AlertDialogContent>
+            <AlertDialogHeader>
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
             <AlertDialogDescription>
               This action cannot be undone. This will permanently delete your account
               and remove your data from our servers.
             </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
             <AlertDialogCancel onClick={()=>setOpenAlert(false)}>Cancel</AlertDialogCancel>
             <AlertDialogAction onClick={onDelete} 
             disabled={loading}>
               {loading? <Loader2Icon className='animate-spin'/>:'Delete'}
               </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+              </AlertDialogFooter>
+              </AlertDialogContent>
+              </AlertDialog>
 
         </div>
         </div>
