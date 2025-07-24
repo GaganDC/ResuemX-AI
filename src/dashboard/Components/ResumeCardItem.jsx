@@ -29,6 +29,9 @@ function ResumeCardItem({resume,refreshData}) {
   const navigation=useNavigate();
   const [openAlert,setOpenAlert]=useState(false);
   const [loading,setLoading]=useState(false);
+  console.log('resume.title:', resume?.title);
+
+
   // const onMenuClick=(url)=>{
   //   navigation(url)
   // }
@@ -71,6 +74,7 @@ function ResumeCardItem({resume,refreshData}) {
           background:resume?.themeColor
         }}>
           <h2 className='text-sm'>{resume.title}</h2>
+          
          
           <DropdownMenu>
           <DropdownMenuTrigger>

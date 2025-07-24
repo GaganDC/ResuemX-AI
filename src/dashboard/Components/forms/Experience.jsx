@@ -19,10 +19,18 @@ const formField={
 
 }
 
-function Experience({ enabledNext }) {
+function Experience() {
    const [experinceList,setExperinceList]=useState([
       formField
    ]);
+
+
+   
+    useEffect(()=>{
+        resumeInfo?.experience.length>0&&setExperinceList(resumeInfo?.experience)
+        
+    },[])
+
 
    const AddNewExperience=()=>{
     
@@ -66,13 +74,14 @@ function Experience({ enabledNext }) {
      
     },[experinceList]);
 
+
     
     const onSave=()=>{
         setLoading(true)
 
         const data={
             data:{
-                Experience:experinceList.map(({ id, ...rest }) => rest)
+                experience:experinceList.map(({ id, ...rest }) => rest)
             }
         }
         console.log(experinceList)
@@ -139,7 +148,7 @@ function Experience({ enabledNext }) {
                            {/* Work Summery */}
                            <RichTextEditor  
                            index={index}
-                           defaultValue={item?.workSummery}
+                           defaultValuevalue={item?.workSummery}
                            onRichTextEditorChange={(event)=>handleRichTextEditor(event,'workSummery',index)}  />
                         </div>
                     </div>

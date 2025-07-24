@@ -7,12 +7,15 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import GlobalApi from '../../../../service/GlobalApi'
 import { toast } from 'sonner'
+import { useRef } from 'react';
 
 function Education({ enabledNext }) {
 
   const [loading,setLoading]=useState(false);
   const {resumeInfo,setResumeInfo}=useContext(ResumeinfoContext);
   const params=useParams();
+  
+  const initialized = useRef(false);
   const [educationalList,setEducationalList]=useState([
     {
       universityName:'',
@@ -24,9 +27,21 @@ function Education({ enabledNext }) {
     }
   ])
 
-  useEffect(()=>{
-    resumeInfo&&setEducationalList(resumeInfo?.education)
-  },[])
+  useEffect(() => {
+    if (!initialized.current && Array.isArray(resumeInfo?.education)) {
+      setEducationalList(resumeInfo.education);
+      initialized.current = true;
+    }
+  }, [resumeInfo]);
+
+  // Push updates immediately to context (for live preview)
+  useEffect(() => {
+    setResumeInfo(prev => ({
+      ...prev,
+      education:educationalList
+    }));
+  }, [educationalList]);
+  
   const handleChange=(event,index)=>{
     const newEntries=educationalList.slice();
     const {name,value}=event.target;
@@ -54,7 +69,7 @@ function Education({ enabledNext }) {
     setLoading(true)
     const data={
       data:{
-        Education:educationalList.map(({ id, ...rest }) => rest)
+        education:educationalList.map(({ id, ...rest }) => rest)
       }
     }
 
@@ -69,12 +84,6 @@ function Education({ enabledNext }) {
 
   }
 
-  useEffect(()=>{
-    setResumeInfo({
-      ...resumeInfo,
-      education:educationalList
-    })
-  },[educationalList])
   return (
     <div className='p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10'>
     <h2 className='font-bold text-lg'>Education</h2>

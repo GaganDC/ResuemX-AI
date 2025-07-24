@@ -12,6 +12,7 @@ import Dashboard from './dashboard'
 import Home from './Home'
 import { ClerkProvider } from '@clerk/clerk-react'
 import { Edit } from 'lucide-react'
+import ViewResume from './my-resume/[resumeId]/view'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -43,7 +44,10 @@ const router= createBrowserRouter([
     path :'/auth/sign-in',
     element:<SignInPage/>
   },
-  
+  {
+    path:'/my-resume/:resumeId/view',
+    element:<ViewResume/>
+  }
   
 ])
 

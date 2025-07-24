@@ -39,13 +39,13 @@ function Skills() {
     const RemoveSkills=()=>{
         setSkillsList(skillsList=>skillsList.slice(0,-1))
     }
-
+    
     const onSave=()=>{
 
         setLoading(true);
         const data={
             data:{
-                Skills:skillsList.map(({ id, ...rest }) => rest)
+                skills:skillsList.map(({ id, ...rest }) => rest)
             }
         }
 

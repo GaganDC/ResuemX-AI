@@ -28,8 +28,10 @@ function Summeries({ enabledNext }) {
         console.log(PROMPT);
         const result=await AIChatSession.sendMessage(PROMPT);
         console.log(JSON.parse(result.response.text()))
-       const parsed = JSON.parse(result.response.text());
-       setAiGenerateSummeryList(JSON.parse(result.response.text()).summaries);
+      const resText = await result.response.text();
+      const parsed = JSON.parse(resText);
+      setAiGenerateSummeryList(parsed); // assuming parsed is the array
+
 
         setLoading(false);
     }
