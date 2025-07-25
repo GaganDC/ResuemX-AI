@@ -4,7 +4,10 @@ import { Sparkles, FileText, Zap, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Header from "@/components/ui/custom/Header"
 import { Link } from "react-router"
+import { useUser } from "@clerk/clerk-react"
 function Home() {
+  
+const {isSignedIn} = useUser();
   return (
     <div>
       <Header/>
@@ -63,12 +66,15 @@ function Home() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="flex flex-col sm:flex-row gap-4 mb-12"
           >
-             <Link to={"/auth/sign-in"}>
-             <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg">
-              Start Building Now
-             <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-        </Link>
+              <Link to={isSignedIn ? "/dashboard" : "/auth/sign-in"}>
+      <Button
+        size="lg"
+        className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg"
+      >
+        Start Building Now
+        <ArrowRight className="w-5 h-5 ml-2" />
+      </Button>
+    </Link>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -98,7 +104,7 @@ function Home() {
             transition={{ duration: 1, delay: 0.4 }}
             className="relative"
           >
-            <div className="relative z-10">
+            <div className="relative z-1">
               <img
                 src="Ai-pic.png"
                 alt="AI-generated resume template"
