@@ -5,8 +5,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { ResumeinfoContext } from "@/context/ResumeinfoContext";
 import GlobalApi from "../../../../service/GlobalApi";
 import { toast } from "sonner";
-import genButton from "@/components/ui/genbutton";
-
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Brain, LoaderCircle } from "lucide-react";

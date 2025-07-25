@@ -8,6 +8,7 @@ import { useUser } from '@clerk/clerk-react'
 import Home from './Home'
 import { Toaster } from './components/ui/sonner'
 import Header from './components/ui/custom/Header'
+import Footer from './components/ui/custom/Footer'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Header/>
         <Outlet/>
         <Toaster />
+        <Footer/>
     </>
   )
 }
