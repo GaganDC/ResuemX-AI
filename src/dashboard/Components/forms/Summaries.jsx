@@ -101,7 +101,7 @@ console.log('value:', aiGeneratedSummeryList);
     {aiGeneratedSummeryList.map((item , index) => (
       <div
         key={index}
-        onClick={() => setSummeries(item?.summery)}
+        onClick={() => setSummeries(item?.summary)}
         className='p-5 shadow-lg my-4 rounded-lg cursor-pointer'
       >
         <h2 className='font-bold my-1 text-primary'>Level: {item?.experience_level}</h2>
