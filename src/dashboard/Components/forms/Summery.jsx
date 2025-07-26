@@ -9,7 +9,15 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Brain, LoaderCircle } from "lucide-react";
 import { AIChatSession } from "../../../../service/AIModal";
-const prompt="Job Title: {jobTitle} , Depends on job title give me list of  summery for 3 experience level, Mid Level and Freasher level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format"
+const prompt = `Job Title: {jobTitle} — Based on this job title, give me a list of 3 summaries for 3 experience levels in this order:
+1. Fresher
+2. Mid
+3. Senior
+
+Each summary should be 3-4 lines long. Return an array of objects in JSON format with:
+- "summary"
+- "experience_level"`
+
 
 function Summery({enabledNext}) {
     const {resumeInfo,setResumeInfo}=useContext(ResumeinfoContext);
@@ -29,15 +37,24 @@ function Summery({enabledNext}) {
     setLoading(true);
     const PROMPT = prompt.replace('{jobTitle}', resumeInfo?.jobTitle);
     const result = await AIChatSession.sendMessage(PROMPT);
-    const resText = await result.response.text();
 
-    // Normalize the response
-    const parsed = JSON.parse(resText).map((item) => ({
+    const resText = await result.response.text();
+    console.log('Raw AI Response:', resText); // <--- Important debug log
+
+    const parsed = JSON.parse(resText);
+
+    if (!Array.isArray(parsed)) {
+      console.error('Expected an array but got:', parsed);
+      toast("AI response was not in the expected format.");
+      return;
+    }
+
+    const normalized = parsed.map((item) => ({
       summary: item.summery || item.summary || '',
       experience_level: item.experience_level || '',
     }));
 
-    setAiGenerateSummeryList(parsed);
+    setAiGenerateSummeryList(normalized);
   } catch (error) {
     console.error("AI Response Error:", error);
     toast("Failed to generate summary from AI");
@@ -45,6 +62,7 @@ function Summery({enabledNext}) {
     setLoading(false);
   }
 };
+
 
 
     const onSave=(e)=>{
