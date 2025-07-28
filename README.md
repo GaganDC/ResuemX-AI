@@ -1,22 +1,36 @@
-<<<<<<< HEAD
-# AI-Resume-Builder
-=======
-# React + Vite
+# 🧠 AI Resume Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A full-stack, AI-powered web app that generates custom, job-targeted resumes using Google Gemini Pro LLM. Built with modern web stack and deployed live.
 
-Currently, two official plugins are available:
+## 🚀 Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
->>>>>>> master
-# AI-Resume-Builder
+🔗 [Live Demo](https://your-live-url.com)  
+📁 [GitHub Repo](https://github.com/your-username/ai-resume-builder)
 
-This project is built using React + Vite.
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🛠️ Tech Stack
 
-Currently, two official plugins are available:
+- **Frontend**: React / Next.js / TailwindCSS
+- **Backend/API**: Gemini Pro API (LLM integration), Node.js
+- **Auth**: Clerk (passwordless auth, role-based access)
+- **CMS**: Strapi (for storing templates & versions)
+- **Deployment**: Vercel / Railway
+- **CI/CD**: GitHub Actions
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## ✨ Features
+
+- 🔐 User authentication with Clerk
+- 📝 Dynamic form-based resume builder
+- 🤖 AI-powered resume generation using Gemini Pro
+- 📄 Multiple resume templates with ATS-friendly formatting
+- 🌐 Fully deployed and responsive
+- 🔄 Resume versioning & live preview
+
+---
+
+## 🧠 Prompt Design (Gemini API)
+
+Used contextual prompting to structure resume sections:
