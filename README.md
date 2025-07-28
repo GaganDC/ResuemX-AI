@@ -16,7 +16,7 @@
 - **Backend/API**: Gemini Pro API (LLM integration), Node.js
 - **Auth**: Clerk (passwordless auth, role-based access)
 - **CMS**: Strapi (for storing templates & versions)
-- **Deployment**: Vercel / Railway
+- **Deployment**: Vercel and Render
 - **CI/CD**: GitHub Actions
 
 ---
