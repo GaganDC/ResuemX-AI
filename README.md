@@ -54,7 +54,7 @@ Used contextual prompting to structure resume sections:
 ![Login](./public/screenshots/home.png)
 
 ### 🧾 Resume Builder
-![Builder](./public/screenshots/builder-ui.png)
+![Builder](./public/screenshots/builder-ui.png.png)
 
 ### 📄 Generated Resume
 ![Output](./public/screenshots/resume-output.png)
