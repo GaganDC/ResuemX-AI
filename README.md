@@ -4,8 +4,9 @@
 
 ## 🚀 Demo
 
-🔗 [Live Demo](https://your-live-url.com)  
-📁 [GitHub Repo](https://github.com/your-username/ai-resume-builder)
+🔗 [Live Demo](https://resume-x-ai.vercel.app/)  
+
+📁 [GitHub Repo](https://github.com/GaganDC/ResuemX-AI)
 
 ---
 
