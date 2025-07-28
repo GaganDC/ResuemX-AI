@@ -34,3 +34,37 @@
 ## 🧠 Prompt Design (Gemini API)
 
 Used contextual prompting to structure resume sections:
+
+
+
+# 🧠 AI Resume Builder
+
+> A full-stack, AI-powered web app that generates custom, job-targeted resumes using Google Gemini Pro LLM...
+
+...
+
+
+
+
+## 📷 Screenshots
+
+### 🖼️ Login Page
+![Login](./screenshots/login.png)
+### 🖼️ Home Page
+![Login](./screenshots/home.png)
+
+### 🧾 Resume Builder
+![Builder](./screenshots/builder-ui.png)
+
+### 📄 Generated Resume
+![Output](./screenshots/resume-output.png)
+
+## 🧪 How to Run Locally
+
+```bash
+git clone https://github.com/your-username/ai-resume-builder
+cd ai-resume-builder
+npm install
+npm run dev
+
+
