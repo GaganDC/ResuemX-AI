@@ -49,15 +49,15 @@ Used contextual prompting to structure resume sections:
 ## 📷 Screenshots
 
 ### 🖼️ Login Page
-![Login](./screenshots/login.png)
+![Login](./public/screenshots/login.png)
 ### 🖼️ Home Page
-![Login](./screenshots/home.png)
+![Login](./public/screenshots/home.png)
 
 ### 🧾 Resume Builder
-![Builder](./screenshots/builder-ui.png)
+![Builder](./public/screenshots/builder-ui.png)
 
 ### 📄 Generated Resume
-![Output](./screenshots/resume-output.png)
+![Output](./public/screenshots/resume-output.png)
 
 ## 🧪 How to Run Locally
 
